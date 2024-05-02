@@ -1,8 +1,8 @@
 
 
-//global variable
+//global variables
 let mySound;
-
+let w;
 
 function preload(){
     // allows me to to use multiple types of sound files for references
@@ -23,27 +23,32 @@ function setup() {
     fft = new p5.FFT();
     // It's a fancy version of volume
     mySound.amp(0.2);
-    
+ 
 }
 
  function draw() {
+    // this is meant to spread out the spectrum across the canvas
+    let w = width / 64;
    // turns the canvas black
     background(0);
     // .analyze will start to turn the sound into a form factor that a computer will understand based on what people are capable of hearing
     let spectrum = fft.analyze();
     // no color borders
     noStroke();
-    // the spectrum will turn into a special orange color
-    fill(226,164,43);
-    // a for loop that continues to make a spectrum until s is greater than the spectrum.length
+  
+    // a for loop that continues to make a spectrum until s is greater than the spectrum.length or graph
     for (let s = 0; s< spectrum.length; s++)
-{
+       {
+         // the spectrum will turn into a special orange color
+         fill(s * 3,164,56);
+         // color outline
+         stroke(30);
         // determines the width 
         let x = map(s, 0, spectrum.length, 0, width);
         // determines height
         let h = -height + map(spectrum[s], 0, 255, height, 0);
     // creates a rectangle based on x and h
-    rect(x, height, width / spectrum.length, h )
+    rect(x * w - 5, height, width / spectrum.length - 2 , h )
     }
     // A way I thought of waveform is when a sound wave is made or maybe ocean waves if it makes any sense
     let waveform = fft.waveform();
