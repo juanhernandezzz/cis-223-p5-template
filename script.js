@@ -68,18 +68,20 @@ function setup() {
     }
     // the second half of the shape function and is meant to stop the shape from growing
     endShape();
-    // If the "B" key is pressed, then a function is called
-    if(keyIsPressed === true){
+   
+ }
+
+ function keyPressed(){
+ 
+        // If the "B" key is pressed, then a function is called
         if (key === 'b') 
         {
             
             bPressed();
        
         }
-    }
-   
+    
  }
-
 
 // if the button is pressed a sound will play
  function bPressed(){
