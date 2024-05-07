@@ -75,7 +75,7 @@ function setup() {
     let spectrum = fft.analyze();
     // no color borders
     noStroke();
-  
+  //Line 79 - 112 is code that I used from Dan Shiffman's video(AKA The coding train) https://youtu.be/NCCHQwNAN6Y?si=vruP0Gwa86gpljac and https://youtu.be/2O3nm0Nvbi4?si=J7juWfd0bRDW-Bfu
     // a for loop that continues to make a spectrum until s is greater than the spectrum.length or graph
     for (let s = 0; s< spectrum.length; s++)
        {
