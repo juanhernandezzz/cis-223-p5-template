@@ -1,5 +1,4 @@
 
-
 //global variables will allow multiple functions access to these variables
 
 let w;
