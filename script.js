@@ -1,8 +1,18 @@
+/*
+For this final project I used p5.sound to display sound by using an 
+algorithm called FFT. FFT turns sound into an array of numbers 
+that programmers can use to display to viewers in multiples ways.
+In this project I chose to use a waveform and spectrum graph.
+For beginner topics I used global variables for sound files 
+so that I can have sound files be used in different functions.
+I used if statements to check if certain buttons are pressed 
+and for when certain sound files are selected
+For intermediate topics: work in progress 
+*/
 
 //global variables will allow multiple functions access to these variables
 
 let w;
-
 
 let mySelect;
 let mySound;
@@ -14,6 +24,7 @@ let mySound4;
 let mySound5;
 let mySound6;
 
+
 function preload(){
     // allows me to to use multiple types of sound files for references
     soundFormats('mp3','wav','ogg');
@@ -24,17 +35,13 @@ function preload(){
     mySound4 = loadSound("snare.wav");
     mySound5 = loadSound("snare2.wav");
     mySound6 = loadSound("snare3.wav");
+    // make an array
 }
 function setup() {
     alert("Welcome to my Final project!!! To use this website, choose a sound from the 2 dropdown menus, either bass or snare. Then press the 'b' button or 's' button and have at it!!!");
     // // creates a 400 px by 40 px canvas
     createCanvas(400, 400);
-    // // A button is created that says Bass
-    // let buttonB = createButton('Bass"B"');
-    // // // Puts the button in a certain location
-    // buttonB.position(50, 120);
-    // // // when the button is pressed the a function is called
-    // buttonB.mousePressed(bPressed);
+   
     // fft means Fast Fourier Transform and is basically a method to capture a single frequency within a waveform
     fft = new p5.FFT();
     // It's a fancy version of volume
@@ -60,7 +67,6 @@ function setup() {
 }
 
  function draw() {
-    
 //these two mySelect will be drawn into the canvas for the user to interact and choose their sound
     let b = mySelect.selected();
     background(b);
@@ -117,16 +123,16 @@ function setup() {
  function keyPressed(){
     // If the "B" key is pressed, then a function is called
     if (key === 'b'){
-     bPressed();
+     bPlay();
     }
     // If the "S" key is pressed, then a function is called
     else if (key === 's'){
-    sPressed();
+    sPlay();
     }       
  }
 
 // if the B button is pressed a sound will play and depending on what the user choose for the menu, a certain sound will play
- function bPressed(){
+ function bPlay(){
     if(mySelect.value() == 'mySound'){
      mySound.play();
     }
@@ -136,9 +142,10 @@ function setup() {
     else if (mySelect.value() == 'mySound3'){
         mySound3.play();
     }
+   
  }
 // if the S button is pressed a sound will play and depending on what the user choose for the menu, a certain sound will play
- function sPressed(){
+ function sPlay(){
     if(mySelect2.value() == 'mySound4'){
      mySound4.play();
     }
@@ -150,12 +157,8 @@ function setup() {
     }
  }
 
-//  // this function will alert if mySound works
-//  function right(){
-//     alert("it works");
-//  }
-// // this function will alert of mySound does not work
-//  function wrong(){
-//     alert("does not work");
-//  }
+
+
+    
+
 
